@@ -37,8 +37,8 @@ function App() {
         <div className="bg-white w-[480px] h-[6px] m-auto z-10 border-t-[1px]"></div>
 
         <div className="w-full h-[200px] flex justify-center items-center">
-        <FaGithub/>
-          <a target="_blank"className="ml-2" href="https://github.com/taras-lozinskyi/todo-list">Github</a>
+        
+          <a target="_blank" className="flex hover:underline" href="https://github.com/taras-lozinskyi/todo-list"><FaGithub className="mr-2 mt-[2px]"/>Github</a>
         </div>
       </div>
     
