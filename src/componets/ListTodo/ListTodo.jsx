@@ -19,28 +19,28 @@ export const ListTodo = ({ taskList, setTaskList, myFilter, setMyFilter }) => {
   
 
   const MouseEnter = (i) => {
-    setMyFilter([
-      ...myFilter.slice(0, i),
+    setTaskList([
+      ...taskList.slice(0, i),
       {
-        id: myFilter[i].id,
-        status: myFilter[i].status,
-        text: myFilter[i].text,
-        hoverDelite: true,
+        id: taskList[i].id,
+        status: taskList[i].status,
+        text: taskList[i].text,
+        hoverDelite:  true,
       },
-      ...myFilter.slice(i + 1),
+      ...taskList.slice(i + 1),
     ]);
   };
 
   const MouseLeave = (i) => {
-    setMyFilter([
-      ...myFilter.slice(0, i),
+    setTaskList([
+      ...taskList.slice(0, i),
       {
-        id: myFilter[i].id,
-        status: myFilter[i].status,
-        text: myFilter[i].text,
-        hoverDelite: (myFilter[i].hoverDelite = false),
+        id: taskList[i].id,
+        status: taskList[i].status,
+        text: taskList[i].text,
+        hoverDelite: (taskList[i].hoverDelite = false),
       },
-      ...myFilter.slice(i + 1),
+      ...taskList.slice(i + 1),
     ]);
   };
 

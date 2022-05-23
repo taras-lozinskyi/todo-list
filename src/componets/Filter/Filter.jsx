@@ -7,6 +7,7 @@ export const Filter = ({ taskList,  setMyFilter, myFilter}) => {
   //   setMyFilter(newList)
   // }
 
+
     const todoFilter =(status) =>{
         if(status === 'all'){
             setMyFilter(taskList)
@@ -21,11 +22,12 @@ export const Filter = ({ taskList,  setMyFilter, myFilter}) => {
   return (
     <div>
       <div className="flex justify-between px-4 h-10 items-center text-gray-400 ">
-        <div>{taskList.length} items left</div>
+        <div>{[...taskList].filter(item=> item.status===false).length} items left</div>
         <button  onClick={()=> todoFilter('all')}className="focus:border hover:border hover:border-[rgba(175,47,47,0.2)] focus:border-[rgba(175,47,47,0.2)] w-10">
           All
         </button>
         <button
+        
           onClick={() => todoFilter(false)}
           className="focus:border hover:border hover:border-[rgba(175,47,47,0.2)] focus:border-[rgba(175,47,47,0.2)] w-14"
         >
