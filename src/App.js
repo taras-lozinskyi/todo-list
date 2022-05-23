@@ -12,15 +12,14 @@ function App() {
   ]);
 
   const [myFilter, setMyFilter] = useState(taskList);
+  const [active, setActive] = useState([])
+  const [completed, setCompleted] = useState([])
+  
 
   useEffect(() =>{
     setMyFilter(taskList)
   }, [taskList] )
-
-  console.log(...myFilter )
-
-
-
+console.log(...myFilter )
 
   return (
    
