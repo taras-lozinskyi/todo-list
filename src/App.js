@@ -11,15 +11,23 @@ function App() {
   const [taskList, setTaskList] = useState([
   ]);
 
-  const [myFilter, setMyFilter] = useState(taskList);
-  const [active, setActive] = useState([])
-  const [completed, setCompleted] = useState([])
-  
+  const FILTER_MAP ={
+    'All' : true || false,
+    "Active" : false,
+    "Completed" :true
+  }
 
+  
+  const FILTER_NAMES = ['All', 'Active', "Completed"]
+
+  const [myFilter, setMyFilter] = useState(taskList);
+
+  
+  
   useEffect(() =>{
     setMyFilter(taskList)
   }, [taskList] )
-console.log(...myFilter )
+
 
   return (
    
@@ -28,8 +36,8 @@ console.log(...myFilter )
         
         <div className="w-full shadow-[0_5px_25px_0_rgb(0,0,0,0.2)]  z-50 bg-white">
           <AddList taskList={taskList} setTaskList={setTaskList}  />
-          <ListTodo taskList={taskList} setTaskList={setTaskList} myFilter={myFilter} setMyFilter={setMyFilter} />
-          <Filter taskList={taskList} setTaskList={setTaskList} setMyFilter={setMyFilter}  myFilter={myFilter}/>
+          <ListTodo taskList={taskList} setTaskList={setTaskList} myFilter={myFilter} setMyFilter={setMyFilter} FILTER_MAP={FILTER_MAP} />
+          <Filter taskList={taskList} setTaskList={setTaskList} setMyFilter={setMyFilter}  myFilter={myFilter} FILTER_NAMES={FILTER_NAMES} FILTER_MAP={FILTER_MAP}/>
         </div>
 
         <div className="bg-white w-[490px] h-[6px] m-auto z-10 border-t-[1px]"></div>

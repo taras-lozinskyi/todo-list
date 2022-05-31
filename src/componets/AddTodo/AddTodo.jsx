@@ -7,6 +7,7 @@ export const AddList = ({ taskList, setTaskList }) => {
   const [taskName, setTaskName] = useState("");
   const [allCompleted, setAllCompleted] = useState(false)
 
+
   const AllCompleted = () => {
      
     var newList = taskList.map((res, i) => {
@@ -16,6 +17,7 @@ export const AddList = ({ taskList, setTaskList }) => {
           hoverDelite: res.hoverDelite,
           status: res.status = true,
           text: res.text,
+          edit:res.edit
         };
       } else {
         return {
@@ -23,6 +25,7 @@ export const AddList = ({ taskList, setTaskList }) => {
           hoverDelite: res.hoverDelites,
           status: res.status = false,
           text: res.text,
+          edit:res.edit
         };
       }
     });
@@ -36,7 +39,7 @@ export const AddList = ({ taskList, setTaskList }) => {
   const handleKeyDown = (event) => {
     if (event.key === "Enter" && taskName !== "") {
       setTaskList([
-        { id: v4(), status: false, text: taskName, hoverDelite: false },
+        { id: v4(), status: false, edit:false, text: taskName, hoverDelite: false },
         ...taskList,
       ]);
       setTaskName("");

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-export const Filter = ({ taskList, setTaskList, setMyFilter, myFilter }) => {
+export const Filter = ({ taskList, setTaskList, setMyFilter, myFilter, filterName, }) => {
   const clearCompleted = () => {
     let newList = [...taskList].filter((item) => item.status !== true);
     setTaskList(newList);
@@ -9,11 +9,9 @@ export const Filter = ({ taskList, setTaskList, setMyFilter, myFilter }) => {
   const visibleButton = () => {
     return [...taskList].some((item) => item.status === true);
   };
-  console.log(visibleButton())
 
-   useEffect(()=>{
-     visibleButton()
-   },[taskList])
+
+
 
   const todoFilter = (status) => {
     if (status === "all") {
@@ -34,19 +32,19 @@ export const Filter = ({ taskList, setTaskList, setMyFilter, myFilter }) => {
         </div>
         
           <button
-            onClick={() => todoFilter("all")}
+            onClick={() => todoFilter(filterName[0])}
             className="focus:border hover:border hover:border-[rgba(175,47,47,0.2)] focus:border-[rgba(175,47,47,0.2)] w-10"
           >
             All
           </button>
           <button
-            onClick={() => todoFilter(false)}
+            onClick={() => todoFilter(filterName[1])}
             className="focus:border hover:border hover:border-[rgba(175,47,47,0.2)] focus:border-[rgba(175,47,47,0.2)] w-14"
           >
             Action
           </button>
           <button
-            onClick={() => todoFilter(true)}
+            onClick={() => todoFilter(filterName[2])}
             className="focus:border hover:border hover:border-[rgba(175,47,47,0.2)] focus:border-[rgba(175,47,47,0.2)] w-24"
           >
             Completed
